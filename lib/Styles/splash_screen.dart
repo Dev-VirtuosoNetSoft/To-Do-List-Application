@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:to_do_application/Screens/home.dart';
+import 'package:to_do_application/Styles/styles.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1800),
+      duration: Duration(milliseconds: 2000),
     );
 
     _fadeAnimation = Tween<double>(
@@ -53,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(color: Color(0xFF1E1E2C)),
+        decoration: const BoxDecoration(color: Styles.backgroundColor),
 
         child: Center(
           child: FadeTransition(
@@ -73,13 +75,16 @@ class _SplashScreenState extends State<SplashScreen>
                           offset: Offset(0, 6),
                         ),
                       ],
+                    ),
+                    // child: SizedBox(
+                    //   height: 350,
+                    //   child: Lottie.asset('assests/animation/loading.json'),
+                    // ),
                   ),
-                  const SizedBox(height: 20),
                   const SizedBox(height: 10),
                   Text(
                     "To Do Application",
-                    //Do Dynamic styling;
-                    //style: TextStyle(fontSize: 16, color: Colors.white70),
+                    style: Styles.titleStyling(color: Colors.white),
                   ),
                 ],
               ),
